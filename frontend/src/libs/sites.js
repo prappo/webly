@@ -7,7 +7,7 @@ export function getSites() {
                 console.log(result)
                 data = result;
             },
-           
+
             (error) => {
                 data = error
             }

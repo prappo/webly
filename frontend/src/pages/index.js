@@ -1,11 +1,32 @@
 import Head from 'next/head'
 import Layout from '../components/Layout'
 import Site from '../components/Site'
-import { getSites } from '../libs/sites'
+
+import axios from 'axios'
+import { useEffect, useState } from 'react'
+
+
 
 export default function Home() {
 
-  const mySites = getSites();
+  const [sites, setSites] = useState({})
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios(
+        'http://localhost:3333/sites',
+      ).then(res => {
+        setSites(res.data)
+      }).catch(err => {
+        console.log(err)
+      })
+      // setSites(result.data);
+    };
+
+    fetchData();
+  }, []);
+
+
 
   return (
     <div>
@@ -26,18 +47,22 @@ export default function Home() {
             </h3>
 
             <div className="flex flex-col gap-10">
+              {sites.length > 0 ? sites.map(site => (
+                <Site name="site1" domain="site1" status="Running" />
+              )) : (
+                <div className="text-center flex justify-center flex-col items-center gap-5">
+                  <p className="text-gray-500 text-sm">You don't have any websites yet.</p>
+                  <p className="text-gray-500 text-sm">Click the button below to create one.</p>
+                  <a className="px-5 py-3 w-48 bg-gray-50 rounded-lg shadow-md text-xl font-bold text-gray-900 flex items-center gap-2 hover:shadow-lg" href="/new">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <div>New Website</div>
+                  </a>
+                </div>
+              )}
 
-              {(mySites == null)
-                ? (
-                  <div>
 
-                    <Site name="site1" domain="site1" status="Running" />
-
-
-                  </div>
-                )
-                : <h1 className="text-center font-light italic text-gray-500">Sorry no site found</h1>
-              }
             </div>
 
 
