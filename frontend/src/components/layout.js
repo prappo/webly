@@ -1,4 +1,5 @@
 export default function Layout({ children }) {
+
     return (
         <>
             <main>
@@ -23,11 +24,11 @@ export default function Layout({ children }) {
                             </button>
                         </div>
                     </div>
-                    
 
-                        {children}
 
-              
+                    {children}
+
+
 
 
                     <div className="flex justify-center items-center gap-2 bg-gray-100 py-5">

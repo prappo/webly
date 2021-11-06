@@ -1,26 +1,28 @@
 import Head from 'next/head'
 import Layout from '../components/Layout'
 import Site from '../components/Site'
-
+import LoginPage from '../components/login'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-
-
+import Config from '../config'
+import { useSession, signIn, signOut } from "next-auth/react"
 
 export default function Home() {
-
+  const { data: session } = useSession()
   const [sites, setSites] = useState({})
 
   useEffect(() => {
+
     const fetchData = async () => {
       const result = await axios(
-        'http://localhost:3333/sites',
+        `${Config().api_url}/sites`,
       ).then(res => {
         setSites(res.data)
+
       }).catch(err => {
         console.log(err)
       })
-      // setSites(result.data);
+
     };
 
     fetchData();
@@ -37,6 +39,7 @@ export default function Home() {
 
       <Layout>
 
+
         <div className="bg-gray-100 flex-grow py-6 flex flex-col sm:py-12">
           <div className="w-3/5 mx-auto">
             <h3 className="text-gray-500 gap-2 text-md font-bold pb-10 flex justify-center items-center">
@@ -48,7 +51,7 @@ export default function Home() {
 
             <div className="flex flex-col gap-10">
               {sites.length > 0 ? sites.map(site => (
-                <Site name="site1" domain="site1" status="Running" />
+                <Site data={site} name="site1" key={Math.floor(Math.random() * 1000)} domain="site1" status="Running" />
               )) : (
                 <div className="text-center flex justify-center flex-col items-center gap-5">
                   <p className="text-gray-500 text-sm">You don't have any websites yet.</p>
@@ -75,4 +78,6 @@ export default function Home() {
 
     </div>
   )
+
+
 }
