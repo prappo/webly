@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+  frontend:
+    image: nginx
+    ports:
+      - "80:3000"
+    volumes:
+      - ./frontend/src/:/usr/share/nginx/html/
+    links:
+      - backend
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 10
+        window: 5m
+  backend:
+    image: golang
+    volumes:
+      - ./backend/src/:/go/src/
+    command:
