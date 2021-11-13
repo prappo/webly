@@ -1,13 +1,14 @@
 import { getProviders, signIn } from "next-auth/react"
-
+import Head from 'next/head'
 export default function SignIn({ providers }) {
   return (
     <>
+      <Head>
+        <title>Login</title>
+        {/* <link rel="icon" href="/favicon.ico" /> */}
+      </Head>
       <div className="h-screen flex justify-center items-center bg-gray-100">
         {Object.values(providers).map((provider) => (
-
-
-
 
           <div key={provider.name}>
             <button onClick={() => signIn(provider.id)} className="bg-gray-900 px-5 hover:shadow-sm py-2 rounded shadow-xl text-white flex justify-center items-center gap-2 font-bold">
@@ -17,8 +18,6 @@ export default function SignIn({ providers }) {
               Login with Github
             </button>
           </div>
-
-
 
         ))}
       </div>

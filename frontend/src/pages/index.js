@@ -1,34 +1,36 @@
 import Head from 'next/head'
-import Layout from '../components/Layout'
+import { useSession, signIn, signOut } from "next-auth/react"
 import Site from '../components/Site'
-import LoginPage from '../components/login'
+
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import Config from '../config'
-import { useSession, signIn, signOut } from "next-auth/react"
+
 
 export default function Home() {
-  const { data: session } = useSession()
-  const [sites, setSites] = useState({})
+  
+  // const { data: session } = useSession()
+  // console.log(session)
+  console.log('hello')
+  // const [sites, setSites] = useState({})
+  // useEffect(() => {
 
-  useEffect(() => {
+  //   const fetchData = async () => {
+  //     const result = await axios(
+  //       `${Config().api_url}/sites`,
+  //     ).then(res => {
+  //       setSites(res.data)
 
-    const fetchData = async () => {
-      const result = await axios(
-        `${Config().api_url}/sites`,
-      ).then(res => {
-        setSites(res.data)
+  //     }).catch(err => {
+  //       console.log(err)
+  //     })
 
-      }).catch(err => {
-        console.log(err)
-      })
+  //   };
 
-    };
+  //   fetchData();
+  // }, []);
 
-    fetchData();
-  }, []);
-
-
+  const sites = {}
 
   return (
     <div>
@@ -37,7 +39,7 @@ export default function Home() {
         {/* <link rel="icon" href="/favicon.ico" /> */}
       </Head>
 
-      <Layout>
+      
 
 
         <div className="bg-gray-100 flex-grow py-6 flex flex-col sm:py-12">
@@ -73,7 +75,7 @@ export default function Home() {
         </div>
 
 
-      </Layout>
+
 
 
     </div>

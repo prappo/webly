@@ -1,6 +1,6 @@
 import Layout from '../components/Layout'
 import Head from 'next/head'
-
+import NewSiteForm from '../components/newsite'
 export default function New() {
     var domain = "site.com";
 
@@ -10,7 +10,7 @@ export default function New() {
                 <title>New Site</title>
 
             </Head>
-            <Layout>
+            
                 <div className="bg-gray-100 flex-grow py-6 flex flex-col sm:py-12">
                     <div className="w-3/5 mx-auto">
                         <div className="flex flex-col gap-10">
@@ -20,7 +20,7 @@ export default function New() {
                                 </svg>
                                 <div>Back</div>
                             </a>
-                            <div className="flex bg-white justify-between px-5 flex-col gap-5 py-5 rounded-lg shadow-lg hover:shadow-xl items-center">
+                            <div className="flex bg-gradient-to-r from-green-400 to-blue-500 justify-between px-5 flex-col gap-5 py-5 rounded-lg shadow-lg hover:shadow-xl items-center">
                                 <div className="flex justify-center items-center w-full gap-5">
                                     <input placeholder="My Awesome Site" className="h-10 w-full bg-gray-100 rounded px-5 text-gray-600 font-bold text-right" type="text" />
                                     <h1 className="font-bold text-2xl text-left w-full">Site Name</h1>
@@ -30,6 +30,8 @@ export default function New() {
                                     <input placeholder="test-site" className="h-10 w-full bg-gray-100 rounded px-5 text-gray-600 font-bold text-right" type="text" />
                                     <h1 className="font-bold text-2xl text-left w-full">.{domain}</h1>
                                 </div>
+
+                                <NewSiteForm domain={domain} />
 
                                 <div>
                                     <a className="px-5 py-3 bg-green-50 rounded-lg shadow-md text-xl font-bold text-gray-900 flex items-center gap-2 hover:shadow-lg" href="/new">
@@ -44,7 +46,9 @@ export default function New() {
                         </div>
                     </div>
                 </div>
-            </Layout>
+                
+                
+            
         </div>
     )
 }
