@@ -8,7 +8,9 @@ function MyApp({
 }) {
   return (
     <SessionProvider session={pageProps.session} >
-    <Component {...pageProps} />
+      <Layout>
+    <Component {...pageProps} />  
+    </Layout>
     </SessionProvider>
   )
 

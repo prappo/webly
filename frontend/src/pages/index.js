@@ -9,28 +9,27 @@ import Config from '../config'
 
 export default function Home() {
   
-  // const { data: session } = useSession()
-  // console.log(session)
-  console.log('hello')
-  // const [sites, setSites] = useState({})
-  // useEffect(() => {
+  const { data: session , status} = useSession()
+  
+  console.log(status)
+  const [sites, setSites] = useState({})
+  useEffect(() => {
 
-  //   const fetchData = async () => {
-  //     const result = await axios(
-  //       `${Config().api_url}/sites`,
-  //     ).then(res => {
-  //       setSites(res.data)
+    const fetchData = async () => {
+      const result = await axios(
+        `${Config().api_url}/sites`,
+      ).then(res => {
+        setSites(res.data)
+      }).catch(err => {
+        // console.log(err)
+      })
 
-  //     }).catch(err => {
-  //       console.log(err)
-  //     })
+    };
 
-  //   };
+    fetchData();
+  }, []);
 
-  //   fetchData();
-  // }, []);
-
-  const sites = {}
+//  let sites = {}
 
   return (
     <div>
@@ -38,8 +37,6 @@ export default function Home() {
         <title>WordPress Hosting</title>
         {/* <link rel="icon" href="/favicon.ico" /> */}
       </Head>
-
-      
 
 
         <div className="bg-gray-100 flex-grow py-6 flex flex-col sm:py-12">
@@ -73,10 +70,6 @@ export default function Home() {
 
           </div>
         </div>
-
-
-
-
 
     </div>
   )
