@@ -2,7 +2,7 @@ import 'tailwindcss/tailwind.css'
 // import { Provider } from 'next-auth/client'
 // import { ThemeProvider } from 'next-themes'
 import { SessionProvider } from "next-auth/react"
-import Layout from '../components/Layout'
+import Layout from '../components/layout'
 function MyApp({
   Component, pageProps: { ...pageProps }
 }) {

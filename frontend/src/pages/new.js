@@ -1,4 +1,4 @@
-import Layout from '../components/Layout'
+import Layout from '../components/layout'
 import Head from 'next/head'
 import NewSiteForm from '../components/newsite'
 export default function New() {
