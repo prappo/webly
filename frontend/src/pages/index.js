@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { useSession, signIn, signOut } from "next-auth/react"
-import Site from '../components/Site'
+import Site from '../components/site'
 
 import axios from 'axios'
 import { useEffect, useState } from 'react'
