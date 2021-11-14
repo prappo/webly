@@ -4,6 +4,12 @@ import { Fragment } from 'react'
 
 const solutions = [
   {
+    name: 'New',
+    description: 'Create new website',
+    href: '/new',
+    icon: IconOne,
+  },
+  {
     name: 'Insights',
     description: 'Measure actions your users take',
     href: '##',
@@ -32,9 +38,12 @@ export default function() {
             <Popover.Button
               className={`
                 ${open ? '' : 'text-opacity-90'}
-                text-gray-900 group bg-orange-700 px-3 py-2 rounded-md inline-flex items-center text-base font-medium hover:text-opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}
+                text-gray-900 group bg-orange-700 gap-1 px-3 py-2 rounded-md inline-flex items-center text-base font-medium hover:text-opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}
             >
-              <span>Solutions</span>
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-900" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M2 5a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm3.293 1.293a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 01-1.414-1.414L7.586 10 5.293 7.707a1 1 0 010-1.414zM11 12a1 1 0 100 2h3a1 1 0 100-2h-3z" clipRule="evenodd" />
+              </svg>
+              <span>Control Panel</span>
               <ChevronDownIcon
                 className={`${open ? '' : 'text-opacity-70'}
                   ml-2 h-5 w-5 text-orange-300 group-hover:text-opacity-80 transition ease-in-out duration-150`}
@@ -75,7 +84,7 @@ export default function() {
                   </div>
                   <div className="p-4 bg-gray-50">
                     <a
-                      href="##"
+                      href="/doc"
                       className="flow-root px-2 py-2 transition duration-150 ease-in-out rounded-md hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
                     >
                       <span className="flex items-center">
@@ -84,7 +93,7 @@ export default function() {
                         </span>
                       </span>
                       <span className="block text-sm text-gray-500">
-                        Start integrating products and tools
+                        Let's start learning how to use the platform
                       </span>
                     </a>
                   </div>

@@ -55,7 +55,7 @@ export default function Home() {
             )) : (
               <div className="text-center flex justify-center flex-col items-center gap-5">
                 <p className="text-gray-500 text-sm">You don't have any websites yet.</p>
-                <p className="text-gray-500 text-sm">Click the button below to create one.</p>
+                
                 <a className="px-5 py-3 w-48 bg-gray-50 rounded-lg shadow-md text-xl font-bold text-gray-900 flex items-center gap-2 hover:shadow-lg" href="/new">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
